@@ -4,8 +4,8 @@ Users have just to copy the video link in the 'Link here' field and voila their 
 The goal of this little project is to let everyone share his taste of (music , movies...) anonymously with everyone
 
 # Improvements 
-accepting videos from other websites than youtube
-ability to play videos with copyright issues
+	accepting videos from other websites than youtube
+	ability to play videos with copyright issues
 
 # Get started
 If you want to help you have to: 
