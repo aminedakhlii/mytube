@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="../static/icon.png">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    {% if title %}
+        <title>myTube - {{ title }}</title>
+    {% else %}
+        <title>myTube</title>
+    {% endif %}
+</head>
+<body style="background-color: #202020">
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background-color: #313131;height:70" >
+      <div class="container" style="background-color:  #313131;">
+        <a class="navbar-brand " style="font-family: Futura, Trebuchet MS, Arial, sans-serif; font-size: 33px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 16.4px;  letter-spacing: 1px; color: white ;" href="/">MyTube</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+        </div>
+      </div>
+      <div class="navbar-nav">
+        <form class="form-inline" action="{{ url_for('insertLink' , link=link ) }}" style="margin-left:10vw; margin-top:15" method="POST">
+        <input class="form-control ml-sm-4 mr-sm-3 md-sm-4" name="link" type="link" placeholder="Link here" aria-label="link" style="width:350">
+        <button class="btn btn-info my-0 my-sm-0" style="width:5vw" type="submit">Add</button>
+      </form>
+      </div>
+      </div>
+    </nav>
+  </header>
+</br></br></br></br>
+{% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}" style="width:37.25vw; margin-left:30vw">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+{% block content %}
+{% endblock %}
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

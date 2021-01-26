@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<main role="main" class="container" style="background-color: #202020">
+
+
+     {% for type in types %}
+     {% if types.index(type) % 2 == 0 %}
+     <div class="row" style="">
+       {% if types.index(type) < types|length - 1 %}
+
+            <a href="{{url_for(type)}}" style="width:220px;height:220px;margin-left:5vw" >
+              <img src="{{url_for('static' , filename='pictures/'+type+'.jpeg' )}}"
+               style="width:280px;height:260px;border-radius:25%;filter:blur(2.5px);border:3px solid black;z-index: 1;">
+           </a>
+
+
+
+            <a href="{{url_for(types[types.index(type) + 1])}}" style="width:220px;height:220px;margin-left:400px" >
+              <img src="{{url_for('static' , filename='pictures/'+types[types.index(type) + 1]+'.jpeg' )}}"
+               style="width:280px;height:260px;border-radius:25%;filter:blur(2.5px);border:3px solid black;z-index: 1;">
+            </a>
+
+<!--            <h2 style="color:white;font-family: Arial ; font-weight: 600; z-index: 2; position: relative;">{{ types[types.index(type) + 1] }}</h2>
+-->
+
+
+    </div>
+  </br></br></br>  </br></br></br>
+
+      {% endif %}
+      {% endif %}
+     {% endfor %}
+
+
+</main>
+{% endblock content %}

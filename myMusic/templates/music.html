@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<main role="main" class="container" style="background-color: #202020">
+ <div class="row" style="">
+   <div class="col-md-8" style="">
+     {% for name in names %}
+     <h5 style="color:white;">{{ name }}</h5></br>
+     <audio id="myAudio" controls {% if names.index(name) < names |length - 1 %} onended="play();" {% endif %} >
+
+         <source src="{{ url_for('static', filename=foldername + '/' + name) }}" type="audio/mpeg">
+
+     </audio>
+   </br></br>
+   <script>
+
+
+   function playNext() {
+
+     var aud = document.getElementById("myAudio");
+
+     console.log('hi')
+//     var i = Math.floor(Math.random() * {{ names | length }});     // returns a random integer from 0 to 9
+     //var src_ = "/static/{{foldername}}/{{names[names.index(name) + 1 ]}}";
+//     aud.src = src_
+     aud.play() ;
+
+   };
+   </script>
+     {% endfor %}
+   </div>
+ </div>
+</main>
+{% endblock content %}
