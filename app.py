@@ -1,4 +1,4 @@
-from myMusic import app , db
+from myTube import app , db
 
 
 if __name__ == '__main__':

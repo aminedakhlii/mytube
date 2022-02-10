@@ -60,7 +60,8 @@ def home():
 @app.route('/')
 def youtube():
         page = request.args.get('page' , 1 , type=int )
-        links = Link.query.join().paginate(page=page , per_page=9)
+        links = Link.query.all()
+        db.session.commit()
         return render_template('youtube.html', links=links)
 
 @app.route('/testapi')

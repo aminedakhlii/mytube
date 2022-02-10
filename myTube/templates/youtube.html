@@ -3,9 +3,7 @@
 
   </br></br></br>
 
-  {% for link in links.items %}
-
-
+  {% for link in links %}
     <iframe  width=320 height=242 style="margin-left:9vw; margin-bottom:5vw; z-index:-1"
         src="{{link.link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
     </iframe>
@@ -13,20 +11,5 @@
 
  {% endfor %}
 <!--   bottom     -->
-
-</br>
-<div style="margin-left:47vw">
-  {% for page_num in links.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-       {% if page_num %}
-         {% if links.page == page_num %}
-           <a class="btn btn-info mb-4" href="{{ url_for('youtube', page=page_num) }}" style="">{{ page_num }}</a>
-         {% else %}
-           <a class="btn btn-outline-info mb-4" href="{{ url_for('youtube', page=page_num) }}">{{ page_num }}</a>
-         {% endif %}
-       {% else %}
-         ...
-   {% endif %}
- {% endfor %}
-</div>
 
 {% endblock %}
